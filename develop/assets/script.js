@@ -1,39 +1,30 @@
-// Assignment code here
-var generatePassword = document.querySelector(#generate);
+const display = document.querySelector("input"),
+	button = document.querySelector("button"),
+	btn = document.querySelector("span.far"),
+	active = document.querySelector("span.fas");
+let chars =
+	"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+~`|}{[]:;?><,./-=";
 
+button.onclick = () => {
+	let i,
+		randomPassword = "";
+	btn.style.display = "block";
+	active.style.display = "none";
+	for (i = 0; i < 16; i++) {
+		randomPassword =
+			randomPassword + chars.charAt(Math.floor(Math.random() * chars.length));
+	}
+	display.value = randomPassword;
+};
 
-
-function generatePassword("passeordLength") {
-
-    var userInput = windows.prompt("How long do you want ypur password to be?")
-    
-    var passwordLegth = parseInt()
-    
-    if (isNaN(passwordlength)) {
-        window.alert("Thats not a number!")
-        return
-    }
-
-    if (password < 8 || passwordlength > 128) {
-        window.alert("Paword length must be between 8 amd 128 characters")
-        return
-    }
+function randomValue(value) {
+	return Math.floor(Math.random() * value);
 }
 
-// Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
-
-
-// Write password to the #password input
-
-function writePassword( ) {
-  var password = generatePassword(8);
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-  
-
+function copy() {
+	btn.style.display = "none";
+	active.style.display = "block";
+	display.select();
+	document.execCommand("copy");
+	alert("Password Copied!");
 }
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
